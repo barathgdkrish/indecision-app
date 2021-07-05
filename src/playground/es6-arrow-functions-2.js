@@ -9,7 +9,6 @@ const multiplier = {
 };
 let count = 0;
 var appRoot = document.getElementById('app');
-
 function renderCounterApp(){  
     var template =( 
         <div>

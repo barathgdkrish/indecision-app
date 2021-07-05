@@ -1,60 +1,55 @@
-const App = {
-  subtitle: 'Put your life in the hands of a computer',
-  options: ['one','two'],
-  getOptions(){}
-};
-let count =0;
-const user = {
-    name: "Barath G D Krishnan",
-    age: 27,
-    location: "Chennai, TN, India"
-};
-var templateTwo =( 
-  <div>
-    <h1>{user.name}</h1>
-    <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
-  </div>
-);
-// const onFormSubmit = (e) =>{};
-var appRoot = document.getElementById('app');
-const renderForm = () =>{
-  var template = (
-    <div>
-      <h1>Indecision App</h1>
-      {App.subtitle && <p>{App.subtitle}</p>}
-      {App.options.length>0 ? 
-      <div>
-        <p>Here are your options</p>
-        <button onClick={()=>{
-          alert(App.options[Math.floor(Math.random()*App.options.length)]);          
-          renderForm();
-        }} name='resetAll'>What should I do</button>
-        <button onClick={()=>{
-          count = 0;
-          App.options = [];
-          renderForm();
-        }} name='resetAll'>Reset All</button>
-          <ol>
-            {App.options.map((option) => <li key={App.options.indexOf(option)}>{option}</li>)}
-          </ol>
-      </div>:<p>No options</p>}
-      <form onSubmit = {(e)=>{
-        e.preventDefault();
-        const option = e.target.elements.option.value;
-        if(option){
-          count++;
-          App.options.push(option);
-          e.target.elements.option.value = null;
-        }
-        renderForm();
-      }}>
-        <input type='text' name='option'/>
-        <button>Add options</button>
-        
-      </form>
-    </div>
-  );
-  ReactDOM.render(template, appRoot);
-}
-renderForm();
+import React from 'react'
+import ReactDOM from 'react-dom'
+import axios from 'axios';
+import IndecisionApp from './components/IndecisionApp'
+import './styles/styles.scss'
+import 'normalize.css/normalize.css'
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+
+// const xhr = new XMLHttpRequest();
+// const url = 'http://localhost:8080/';
+
+// xhr.open('GET', url);
+// xhr.onreadystatechange = someHandler;
+// xhr.send();
+// axios
+//     .get(
+//         'http://localhost:8080/findallpersons/'
+//     ).then(
+//         (res) => {
+//             console.log("Data value",res.data);
+//         }
+//     );
+
+// class OldClass{
+//     constructor(){
+//         this.name = 'Barath';
+//         this.oldGreeting = this.oldGreeting.bind(this);
+//     }
+
+//     oldGreeting(){
+//         return `My name is ${this.name}`; 
+//     }
+// }
+
+// const array = ['apple', 'orange','banana']
+
+// const old = new OldClass();
+// const getOldGreeting = old.oldGreeting;
+// console.log(getOldGreeting());
+
+// //-----------------------------------------------------
+
+// class NewClass{
+    
+//     name = 'G D Krishnan';
+//     newGreeting = () => {
+//         return `My surname is ${this.name}`; 
+//     }
+// }
+
+// const murmur = new NewClass();
+// const getNewGreeting = murmur.newGreeting;
+// console.log(getNewGreeting());
+// //---------------------------------------------------------

@@ -1,0 +1,28 @@
+.header {
+    background-color: #20222b;
+    color: white;
+    padding: 4.8rem 0;
+}   
+.header__title{
+    font-size: $xl-size;
+    margin-bottom: $m-size;
+}
+
+.header__subtitle{
+    color: #afaad7;
+    font-size: $m-size;
+    font-weight: 500;
+    margin: 0;
+}
+
+.action-block{
+    margin-top: $m-size;
+}
+
+@media (min-width: $desktop-breakpoint){
+
+    .action-block{
+        margin-top: $xl-size;
+    }
+
+}
